@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 
-import { CURRENT_USER, ROOT_PATH } from '../utils/constants';
+import { CURRENT_USER, ROOT_PATH } from '@/app/utils/constants';
 
 const Header = () => (
   <header className="bg-gray-800 text-white p-2 pl-8 pr-8 flex justify-between items-center">

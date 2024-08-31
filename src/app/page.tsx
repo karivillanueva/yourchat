@@ -4,15 +4,15 @@ import { useRouter } from 'next/navigation';
 import { Bounce, toast } from 'react-toastify';
 import axios from 'axios';
 
-import { CHAT_PATH, ADMIN_PATH } from './utils/constants';
 import CustomButton from './components/CustomButton';
+import { CHAT_PATH, ADMIN_PATH, START_CHAT_API_ROUTE } from './utils/constants';
 
 const Home = () => {
   const router = useRouter();
 
   const handleStartChat = async () => {
     try {
-      const response = await axios.post('/api/chat/start');
+      const response = await axios.post(START_CHAT_API_ROUTE);
 
       const { id } = response.data;
       if (id) router.push(`${CHAT_PATH}/${id}`);

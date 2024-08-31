@@ -6,8 +6,12 @@ import axios from 'axios';
 
 import BubbleChat from '@/app/chat/[id]/components/BubbleChat';
 import ChatInput from '@/app/chat/[id]/components/ChatInput';
-import { CURRENT_USER } from '@/app/utils/constants';
 import { MessageType } from '../../types/MessageType';
+import {
+  ADD_MESSAGES_API_ROUTE,
+  CURRENT_USER,
+  MESSAGES_API_ROUTE,
+} from '@/app/utils/constants';
 
 const ChatPage = () => {
   const params = useParams();
@@ -20,7 +24,7 @@ const ChatPage = () => {
   useEffect(() => {
     const loadMessages = async () => {
       try {
-        const response = await axios.get(`/api/messages?id=${chatId}`);
+        const response = await axios.get(`${MESSAGES_API_ROUTE}?id=${chatId}`);
 
         setMessages(response.data);
         setLoading(false);
@@ -41,7 +45,7 @@ const ChatPage = () => {
 
   const handleSendMessage = async (text: string) => {
     try {
-      const response = await axios.post('/api/messages/add', {
+      const response = await axios.post(ADD_MESSAGES_API_ROUTE, {
         chatId,
         sender: CURRENT_USER,
         text,

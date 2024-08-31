@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 import { ChatType } from '../../types/ChatType';
-import { CHAT_PATH } from '../../utils/constants';
+import { CHAT_PATH } from '@/app/utils/constants';
 import { formatDate } from '../../utils/formatDate';
 
 const ChatSummary = ({ chat }: { chat: ChatType }) => (
